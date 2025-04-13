@@ -28,6 +28,7 @@ class _AccountCardV2State extends State<AccountCardV2>
     with AutomaticKeepAliveClientMixin {
   @override
   bool get wantKeepAlive => true;
+  bool hidden = true;
 
   @override
   Widget build(BuildContext context) {
@@ -79,13 +80,20 @@ class _AccountCardV2State extends State<AccountCardV2>
                   ),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                child: Text(
-                  totalBalance,
-                  style: context.headlineSmall?.copyWith(
-                    color: onPrimary,
-                    fontWeight: FontWeight.bold,
+              InkWell(
+                onTap: () {
+                  setState(() {
+                    hidden = !hidden;
+                  });
+                },
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                  child: Text(
+                    hidden ? "*****" : totalBalance,
+                    style: context.headlineSmall?.copyWith(
+                      color: onPrimary,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
               ),
