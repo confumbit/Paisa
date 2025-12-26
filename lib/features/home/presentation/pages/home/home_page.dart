@@ -99,6 +99,7 @@ class HomePage extends StatelessWidget {
         _updateHomeScreenWidget(
           context,
           transactions: transactions,
+          accounts: accounts,
         );
 
         return MultiProvider(
@@ -153,6 +154,7 @@ class Destination {
 Future<void> _updateHomeScreenWidget(
   BuildContext context, {
   required List<TransactionEntity> transactions,
+  required List<AccountEntity> accounts,
 }) async {
   final int primaryContainer =
       Theme.of(context).colorScheme.primaryContainer.value;
@@ -160,7 +162,10 @@ Future<void> _updateHomeScreenWidget(
 
   final double totalExpenses = transactions.totalExpense;
   final double totalIncome = transactions.totalIncome;
-  final double totalExpenseBalance = totalIncome - totalExpenses;
+  final double totalInitialBalance = accounts.fold(
+      0, (previousValue, element) => previousValue + element.amount);
+  final double totalExpenseBalance =
+      totalIncome - totalExpenses + totalInitialBalance;
   final String totalExpensesFormatted =
       totalExpenses.toFormateCurrency(context);
   final String totalIncomeFormatted = totalIncome.toFormateCurrency(context);

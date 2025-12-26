@@ -112,15 +112,15 @@ void addDummyData() async {
 
   List<String> banks = [
     'Global Trust Bank',
-    'Unity Financial',
-    'Apex Bank',
-    'Mercury Savings & Loan',
-    'Crescent Credit Union',
-    'Orion Bank',
-    'Pinnacle Finance Group',
-    'Zenith Bank',
-    'Nova Bank',
-    'Infinity Banking Corp',
+    // 'Unity Financial',
+    // 'Apex Bank',
+    // 'Mercury Savings & Loan',
+    // 'Crescent Credit Union',
+    // 'Orion Bank',
+    // 'Pinnacle Finance Group',
+    // 'Zenith Bank',
+    // 'Nova Bank',
+    // 'Infinity Banking Corp',
   ];
 
   for (int i = 0; i < banks.length; i++) {
@@ -179,7 +179,7 @@ void addDummyData() async {
     );
   }
 
-  for (int i = 0; i < 1000; i++) {
+  for (int i = 0; i < 10; i++) {
     final TransactionType type = [
       TransactionType.expense,
       TransactionType.income,
