@@ -53,7 +53,7 @@ class SummaryMonthCardWidget extends StatelessWidget {
                                   ),
                                 ),
                                 Text(
-                                  transactions.totalIncome
+                                  transactions.thisMonthIncome
                                       .toFormateCurrency(context),
                                   style: context.titleSmall
                                       ?.copyWith(fontWeight: FontWeight.bold),
