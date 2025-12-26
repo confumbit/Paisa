@@ -159,6 +159,8 @@ class _NameAutoSuggestState extends State<NameAutoSuggest> {
                   onTap: () {
                     setState(() {
                       widget.controller.text = _suggestions[index];
+                      context.read<TransactionBloc>().expenseName =
+                          _suggestions[index];
                       _suggestions.clear();
                     });
                   },
